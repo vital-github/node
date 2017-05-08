@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MyApp</title>
+        {{#if showTests}}
+        <link rel="stylesheet" href="/vendor/mocha.css">
+        {{/if}}
+        <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/my-style.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/js/scripts.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="container">
+            <ul class="nav nav-pills menu">
+                <li class="active"><a href="/"> Главная</a></li>
+                <li><a href="/contact">        Контакты</a></li>
+                <li><a href="/registration">Регистрация</a></li>
+                <li><a href="/tours/hood-river">Тур по реке Худ</a></li>
+            </ul>
+        </div>
+    {{{body}}}
+
+    {{#if showTests}}
+        <div id="mocha"></div>
+
+        <script src="/vendor/mocha.js"></script>
+        <script src="/vendor/chai.js"></script>
+
+        <script>
+            mocha.ui('tdd');
+            var assert = chai.assert;
+        </script>
+
+        <script src="/qa/tests-global.js"></script>
+
+        {{#if pageTestScript}}
+            <script src="{{pageTestScript}}"></script>
+        {{/if}}
+
+        <script>mocha.run();</script>
+    {{/if}}
+  </body>
+</html>

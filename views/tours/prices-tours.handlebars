@@ -1,0 +1,17 @@
+<h1>Добро пожаловать!</h1>
+<p>Запрос цены:</p>
+<form action="">
+    <input type="hidden" name="referrer">
+    <input type="text" id="fieldName" name="name" placeholder="Ваше имя">
+    <input type="text" name="size" placeholder="Кол-во человек">
+    <input type="email" name="email" placeholder="Ваш email">
+    <input type="submit" value="Отправить запрос">
+</form>
+
+{{#section 'jquery'}}
+    <script>
+        $(document).ready(function() {
+            $('input[name="referrer"]').val(document.referrer);
+        });
+    </script>
+{{/section}}
